@@ -14,17 +14,9 @@ Een snelle en betrouwbare Python CLI-tool (en standalone `.exe`) om verouderde F
 * **Overzichtelijke Logs**: Maakt gebruik van duidelijke, gekleurde console-output via de `rich` library.
 
 ### 🛠️ Gebruik
-
-#### Methode 1: Direct via Python runnen
 1. Maak een map genaamd `resources` aan in de hoofdmap.
 2. Plaats de FiveM/RedM resources die je wilt converteren in de `resources` map.
-3. Start het script via je terminal:
-   ```bash
-   python "FIVEM ASSETS MANIFEST.py"
-   ```
-
-#### Methode 2: Standalone `.exe` gebruiken
-Als je de executable (`FiveM_Asset_Converter.exe`) hebt gebouwd, plaats deze dan simpelweg naast je `resources` map en dubbelklik om de tool direct te starten!
+3. Start het script via je terminal (`python "FIVEM ASSETS MANIFEST.py"`) of dubbelklik op de `.exe` nadat je deze hebt gebouwd.
 
 ---
 
@@ -40,42 +32,49 @@ A fast, reliable Python CLI tool (and standalone `.exe`) to automatically conver
 * **Clean & Colored Logs**: Utilizes clear, color-coded console output powered by the `rich` library.
 
 ### 🛠️ How to Use
-
-#### Method 1: Running directly with Python
 1. Create a folder named `resources` in the root directory.
 2. Place the FiveM/RedM resources you want to convert inside this `resources` folder.
-3. Start the script via your terminal:
-   ```bash
-   python "FIVEM ASSETS MANIFEST.py"
-   ```
-
-#### Method 2: Using the standalone `.exe`
-If you have generated the executable (`FiveM_Asset_Converter.exe`), simply move it next to your `resources` folder and double-click it to start converting instantly!
+3. Start the script via your terminal (`python "FIVEM ASSETS MANIFEST.py"`) or double-click the `.exe` once it is compiled.
 
 ---
 
-## 📁 Project Structure / Projectstructuur
+## 🇹🇷 Türkçe (Turkish Description)
 
-Zorg dat de bestanden als volgt in je projectmap staan / Ensure your project files are organized as follows:
+Eski `__resource.lua` formatındaki FiveM/RedM scriptlerini otomatik olarak modern `fxmanifest.lua` formatına dönüştüren, hızlı ve güvenilir bir Python CLI aracı (ve bağımsız `.exe` programı).
+
+### 🚀 Özellikler
+* **Otomatik Dönüştürme**: Klasörleri derinlemesine tarar ve `__resource.lua` dosyalarını doğrudan `fxmanifest.lua` formatına çevirir.
+* **Mantıksal Kod Koruması**: Eski manifest sürüm satırlarını kaldırır, en üste modern `fx_version` ve `game` etiketlerini ekler; mevcut script, export ve değişkenlerinizi ise tamamen korur.
+* **Toplu Güncelleme**: İsteğe bağlı olarak mevcut `fxmanifest.lua` dosyalarını daha yeni bir FX sürümüne (örneğin *adamant*'tan *cerulean*'a) güncelleyebilir.
+* **PyInstaller Uyumlu**: Derlenmiş `.exe` dosyaları gibi etkileşimli ok tuşu menülerini desteklemeyen ortamlarda, otomatik olarak kararlı bir sayısal seçim moduna geçer.
+* **Renkli ve Net Loglar**: `rich` kütüphanesi sayesinde terminalde anlaşılır ve renk kodlu çıktılar sunar.
+
+### 🛠️ Nasıl Kullanılır
+1. Ana dizinde `resources` adında bir klasör oluşturun.
+2. Dönüştürmek istediğiniz FiveM/RedM scriptlerini bu `resources` klasörünün içine yükleyin.
+3. Terminal üzerinden betiği başlatın (`python "FIVEM ASSETS MANIFEST.py"`) veya derlediğiniz `.exe` dosyasına çift tıklayarak çalıştırın.
+
+---
+
+## 📁 Project Structure / Proje Yapısı
 
 ```text
 📁 Your-Project-Folder/
-├── 📁 resources/               # <-- Plaats hier je scripts / Place your scripts here
+├── 📁 resources/               # <-- Scripts buraya / Place your scripts here
 ├── 📄 FIVEM ASSETS MANIFEST.py # Main script
-├── 📄 converter.py             # Conversielogica / Conversion logic
-├── 📄 logger.py                # Console logger helper
-└── 📄 README.md                # Deze handleiding / This manual
+├── 📄 converter.py             # Dönüştürme mantığı / Conversion logic
+├── 📄 logger.py                # Konsol log yardımcısı / Console logger helper
+└── 📄 README.md                # Bu kılavuz / This manual
 ```
 
-## 💻 Compilation / Compileren naar .exe
-
-Om het script om te bouwen tot een standalone applicatie die overal zonder Python werkt, gebruik je PyInstaller via de opdrachtprompt (`cmd`):
+## 💻 Compilation / .exe Olarak Derleme
 
 ```bash
 pyinstaller --onefile --console --name "FiveM_Asset_Converter" "FIVEM ASSETS MANIFEST.py"
 ```
-Na het bouwen vind je jouw kant-en-klare executable (`FiveM_Asset_Converter.exe`) in de map **`dist/`**.
+Derleme bittikten sonra hazır haldeki executable (`FiveM_Asset_Converter.exe`) dosyasını **`dist/`** klasörünün içinde bulabilirsiniz.
 
 ## ⚠️ Safety & Backups
 * **NL**: Het script verwijdert na een succesvolle conversie het oude `__resource.lua` bestand om serverconflicten te voorkomen. Maak altijd een backup van je resources voordat je een massaconversie start!
 * **EN**: After a successful conversion, the script deletes the legacy `__resource.lua` file to prevent manifest conflicts. It is highly recommended to make a backup of your resources before running a bulk conversion!
+* **TR**: Başarılı bir dönüştürmeden sonra, sunucu içi manifest çakışmalarını önlemek amacıyla eski `__resource.lua` dosyası silinir. Toplu dönüştürme yapmadan önce scriptlerinizin yedeğini almanız kesinlikle tavsiye edilir!
